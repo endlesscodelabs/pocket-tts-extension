@@ -1,0 +1,98 @@
+<Application
+    x:Class="VoicesDesktop.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <ResourceDictionary.ThemeDictionaries>
+                <!-- Dark Mode (ChatGPT Dark Palette) -->
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="AppBackgroundBrush" Color="#171717" />
+                    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#212121" />
+                    <SolidColorBrush x:Key="CardBorderBrush" Color="#2F2F2F" />
+                    <SolidColorBrush x:Key="TextMainBrush" Color="#ECECEC" />
+                    <SolidColorBrush x:Key="TextMutedBrush" Color="#8E8E8E" />
+                    <SolidColorBrush x:Key="ActionBtnBackgroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="ActionBtnForegroundBrush" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="QuickStopBackgroundBrush" Color="#2A2A2A" />
+                    <SolidColorBrush x:Key="QuickStopBorderBrush" Color="#383838" />
+                    <SolidColorBrush x:Key="QuickStopForegroundBrush" Color="#ECECEC" />
+                    <SolidColorBrush x:Key="InputBackgroundBrush" Color="#171717" />
+                    <SolidColorBrush x:Key="InputBorderBrush" Color="#2F2F2F" />
+                    <SolidColorBrush x:Key="WaveBarMutedBrush" Color="#8E8E8E" />
+                    <SolidColorBrush x:Key="WaveBarBrightBrush" Color="#ECECEC" />
+                    <SolidColorBrush x:Key="WaveBarPeakBrush" Color="#FFFFFF" />
+
+                    <!-- Slider Theme Overrides -->
+                    <SolidColorBrush x:Key="SliderTrackValueFill" Color="#ECECEC" />
+                    <SolidColorBrush x:Key="SliderThumbBackground" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="SliderTrackFill" Color="#2F2F2F" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#383838" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#D4D4D4" />
+                    <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#383838" />
+
+                    <!-- Text Control Overrides -->
+                    <SolidColorBrush x:Key="TextControlBackground" Color="#181818" />
+                    <SolidColorBrush x:Key="TextControlBackgroundPointerOver" Color="#1B1B1B" />
+                    <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="#181818" />
+                    <SolidColorBrush x:Key="TextControlBorderBrush" Color="#2A2A2A" />
+                    <SolidColorBrush x:Key="TextControlBorderBrushPointerOver" Color="#383838" />
+                    <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="#525252" />
+                    <SolidColorBrush x:Key="TextControlForeground" Color="#ECECEC" />
+                    <SolidColorBrush x:Key="TextControlForegroundPointerOver" Color="#ECECEC" />
+                    <SolidColorBrush x:Key="TextControlForegroundFocused" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="TextControlPlaceholderForeground" Color="#8E8E8E" />
+                </ResourceDictionary>
+
+                <!-- Light Mode (ChatGPT Light Palette) -->
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="AppBackgroundBrush" Color="#F7F7F8" />
+                    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="CardBorderBrush" Color="#E5E5E5" />
+                    <SolidColorBrush x:Key="TextMainBrush" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="TextMutedBrush" Color="#737373" />
+                    <SolidColorBrush x:Key="ActionBtnBackgroundBrush" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="ActionBtnForegroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="QuickStopBackgroundBrush" Color="#F4F4F4" />
+                    <SolidColorBrush x:Key="QuickStopBorderBrush" Color="#E5E5E5" />
+                    <SolidColorBrush x:Key="QuickStopForegroundBrush" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="InputBackgroundBrush" Color="#F4F4F4" />
+                    <SolidColorBrush x:Key="InputBorderBrush" Color="#E5E5E5" />
+                    <SolidColorBrush x:Key="WaveBarMutedBrush" Color="#B4B4B4" />
+                    <SolidColorBrush x:Key="WaveBarBrightBrush" Color="#404040" />
+                    <SolidColorBrush x:Key="WaveBarPeakBrush" Color="#0D0D0D" />
+
+                    <!-- Slider Theme Overrides -->
+                    <SolidColorBrush x:Key="SliderTrackValueFill" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="SliderThumbBackground" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="SliderTrackFill" Color="#E5E5E5" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#262626" />
+                    <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#D9D9D9" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#404040" />
+                    <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#D9D9D9" />
+
+                    <!-- Text Control Overrides -->
+                    <SolidColorBrush x:Key="TextControlBackground" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="TextControlBackgroundPointerOver" Color="#F7F7F8" />
+                    <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="TextControlBorderBrush" Color="#E5E5E5" />
+                    <SolidColorBrush x:Key="TextControlBorderBrushPointerOver" Color="#D1D5DB" />
+                    <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="TextControlForeground" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="TextControlForegroundPointerOver" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="TextControlForegroundFocused" Color="#0D0D0D" />
+                    <SolidColorBrush x:Key="TextControlPlaceholderForeground" Color="#737373" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

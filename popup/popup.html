@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voices</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="panel">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <img class="logo-img" src="../icons/icon-48.png" srcset="../icons/icon-48.png 1x, ../icons/icon-128.png 2x" alt="Voices Logo" width="28" height="28">
+        <span class="brand-name">Voices</span>
+      </div>
+      <div class="header-right">
+        <button class="stop-icon-btn" id="header-stop-btn" title="Stop Read Aloud">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="4" y="4" width="16" height="16" rx="2.5"></rect>
+          </svg>
+          <span>Stop</span>
+        </button>
+        <div class="status" id="status-badge" title="Backend Server Status">
+          <span class="status-dot" id="status-dot"></span>
+          <span class="status-text" id="status-text">Checking…</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Voice Control -->
+    <div class="control-group">
+      <label class="control-label" for="voice-select">Voice</label>
+      <div class="select-wrapper">
+        <select id="voice-select">
+          <option value="alba">Alba — Narrator</option>
+          <option value="fantine">Fantine — Female</option>
+          <option value="cosette">Cosette — Female</option>
+          <option value="eponine">Eponine — Female</option>
+          <option value="azelma">Azelma — Female</option>
+          <option value="jean">Jean — Male</option>
+          <option value="marius">Marius — Male</option>
+          <option value="javert">Javert — Male</option>
+        </select>
+        <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Speed Slider -->
+    <div class="control-group">
+      <div class="label-row">
+        <label class="control-label" for="speed-slider">Speed</label>
+        <span class="speed-val" id="speed-val">1.00×</span>
+      </div>
+      <div class="slider-track-wrap">
+        <input type="range" id="speed-slider" min="0.75" max="2.0" step="0.05" value="1.0">
+      </div>
+    </div>
+
+    <!-- Minimal Waveform -->
+    <div class="waveform" id="waveform">
+      <span class="bar" style="--i:0"></span>
+      <span class="bar" style="--i:1"></span>
+      <span class="bar" style="--i:2"></span>
+      <span class="bar" style="--i:3"></span>
+      <span class="bar" style="--i:4"></span>
+    </div>
+
+    <!-- Action Button -->
+    <button class="action-btn" id="test-btn">
+      <svg id="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <polygon points="5,3 19,12 5,21"></polygon>
+      </svg>
+      <span id="btn-label">Test Voice</span>
+    </button>
+
+    <!-- Shortcut Hint -->
+    <div class="shortcut-tip">
+      <span class="tip-label">Shortcut:</span>
+      <kbd>Alt</kbd> + <kbd>C</kbd>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

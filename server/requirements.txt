@@ -1,0 +1,18 @@
+# Voices Local Neural TTS Bridge - Backend Dependencies
+# Recommended Python version: 3.10, 3.11, or 3.12
+
+# Core Web Framework & ASGI Server
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+pydantic>=2.0.0
+
+# Neural TTS Engine & ML Dependencies
+pocket-tts>=0.1.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Image & Icon Processing (for generate_icons.py)
+pillow>=9.0.0
+
+# HTTP Client & Utilities
+requests>=2.28.0

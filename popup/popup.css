@@ -1,0 +1,404 @@
+/* ─── Variables & Theme (ChatGPT Black & White Palette) ───────────────────── */
+:root {
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Dark mode (ChatGPT dark) */
+  --bg-panel:       #212121;
+  --text-main:      #ececec;
+  --text-muted:     #b4b4b4;
+  --accent:         #ffffff;
+  --btn-bg:         #ffffff;
+  --btn-text:       #0d0d0d;
+  --btn-hover:      #d9d9d9;
+  --btn-shadow:     rgba(0, 0, 0, 0.40);
+  --input-bg:       #2f2f2f;
+  --input-hover:    #383838;
+  --slider-track:   #3a3a3a;
+  --bar-color:      #ececec;
+  --logo-filter:    invert(1);
+  --dot-offline:    #ef4444;
+  --dot-online:     #10a37f;
+  --kbd-bg:         #2f2f2f;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Light mode (ChatGPT light) */
+    --bg-panel:       #ffffff;
+    --text-main:      #0d0d0d;
+    --text-muted:     #737373;
+    --accent:         #0d0d0d;
+    --btn-bg:         #0d0d0d;
+    --btn-text:       #ffffff;
+    --btn-hover:      #262626;
+    --btn-shadow:     rgba(0, 0, 0, 0.16);
+    --input-bg:       #f4f4f4;
+    --input-hover:    #ececec;
+    --slider-track:   #e5e5e5;
+    --bar-color:      #0d0d0d;
+    --logo-filter:    none;
+    --dot-offline:    #ef4444;
+    --dot-online:     #10a37f;
+    --kbd-bg:         #f0f0f0;
+  }
+}
+
+/* ─── Global Reset & Window Fit (Strictly Borderless, Edge-to-Edge) ───────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+*:focus, *:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+:root {
+  background-color: var(--bg-panel);
+}
+
+html {
+  width: 300px;
+  min-width: 300px;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: var(--bg-panel);
+  box-sizing: border-box;
+  border: none !important;
+  outline: none !important;
+}
+
+body {
+  width: 100% !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: var(--bg-panel);
+  font-family: var(--font);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: none !important;
+  outline: none !important;
+}
+
+.panel {
+  width: 100% !important;
+  min-width: 100% !important;
+  background-color: var(--bg-panel);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 !important;
+  box-sizing: border-box;
+  border: none !important;
+  outline: none !important;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  filter: var(--logo-filter);
+  transition: filter 0.2s ease;
+}
+
+.brand-name {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stop-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: none !important;
+  outline: none !important;
+  background: var(--input-bg);
+  color: var(--text-main);
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.stop-icon-btn:hover {
+  background: rgba(239, 68, 68, 0.14);
+  color: var(--dot-offline);
+  transform: translateY(-0.5px);
+}
+
+.stop-icon-btn:active {
+  transform: translateY(0);
+}
+
+.stop-icon-btn svg {
+  color: var(--dot-offline);
+  flex-shrink: 0;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #9ca3af;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.status-dot.online {
+  background: var(--dot-online);
+  box-shadow: 0 0 6px var(--dot-online);
+}
+
+.status-dot.offline {
+  background: var(--dot-offline);
+  box-shadow: 0 0 6px var(--dot-offline);
+}
+
+.status-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* ─── Controls ────────────────────────────────────────────────────────────── */
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.speed-val {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Minimal Borderless Select ───────────────────────────────────────────── */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--input-bg);
+  border: none !important;
+  outline: none !important;
+  color: var(--text-main);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 32px 9px 12px;
+  border-radius: 11px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.select-wrapper select:hover {
+  background: var(--input-hover);
+}
+
+.chevron {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-muted);
+}
+
+/* ─── Minimal Slider ──────────────────────────────────────────────────────── */
+.slider-track-wrap {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--slider-track);
+  border: none !important;
+  outline: none !important;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  border: none !important;
+  outline: none !important;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* ─── Waveform ────────────────────────────────────────────────────────────── */
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.20); }
+  50%       { transform: scaleY(1.0);  }
+}
+
+.waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 20px;
+}
+
+.bar {
+  display: block;
+  width: 3.5px;
+  height: 100%;
+  background: var(--bar-color);
+  border-radius: 999px;
+  transform: scaleY(0.20);
+  opacity: 0.25;
+  transform-origin: center;
+  transition: opacity 0.25s ease;
+  border: none !important;
+}
+
+.waveform.active .bar {
+  opacity: 0.9;
+  animation: wave 0.85s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.11s);
+}
+
+/* ─── Action Button (ChatGPT Style) ───────────────────────────────────────── */
+.action-btn {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 11px;
+  border: none !important;
+  outline: none !important;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px var(--btn-shadow);
+  transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+
+.action-btn:hover {
+  background: var(--btn-hover);
+  transform: translateY(-1px);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+/* ─── Shortcut Hint ───────────────────────────────────────────────────────── */
+.shortcut-tip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 10.5px;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.shortcut-tip kbd {
+  background: var(--kbd-bg);
+  border: none !important;
+  outline: none !important;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: 10px;
+  color: var(--text-main);
+  box-shadow: none;
+}
